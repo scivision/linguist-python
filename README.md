@@ -31,3 +31,21 @@ Since we are merely parsing the original Linguist command-line output, we need t
 ```sh
 pip install -e .
 ```
+
+## Usage
+From Terminal:
+```
+pylinguist
+```
+
+You can also import as a Python module:
+```python
+import pylinguist as pl
+
+langs = pl.linguist('~/mypath')
+```
+
+## Notes
+PyLinguist parses text output from 
+[GitHub Linguist](https://github.com/github/linguist#using-emacs-or-vim-modelines), 
+which is a Ruby program.
