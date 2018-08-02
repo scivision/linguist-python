@@ -3,7 +3,7 @@ from typing import List, Tuple
 from pathlib import Path
 
 
-def linguist(path: Path, verbose: bool) -> List[Tuple[str, str]]:
+def linguist(path: Path, verbose: bool=False) -> List[Tuple[str, str]]:
     V = '--breakdown' if verbose else ''
 
     ret = subprocess.check_output(['linguist', str(path), V],
