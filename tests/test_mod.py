@@ -5,6 +5,7 @@ from pathlib import Path
 
 R = Path(__file__).resolve().parents[1]
 
+
 def test_linguist():
     langs = pl.linguist(R, False)
 
