@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/scivision/linguist-python.svg?branch=master)](https://travis-ci.com/scivision/linguist-python)
+[![Coverage Status](https://coveralls.io/repos/github/scivision/linguist-python/badge.svg?branch=master)](https://coveralls.io/github/scivision/linguist-python?branch=master)
+
 # python-linguist
 Simple command-line wrapper of Ruby-based Github Linguist
 

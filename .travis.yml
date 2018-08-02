@@ -1,0 +1,40 @@
+# this also works great on osx, but I disabled osx to conserve Travis-CI resources.
+language: python
+sudo: required
+dist: xenial
+group: travis_latest
+
+git:
+  depth: 3
+  quiet: true
+
+python:
+- 3.6
+- 3.7
+
+os:
+  - linux
+  
+env: GEM_HOME=$HOME/gems PATH=$HOME/gems/bin:$PATH
+
+addons:
+  apt:
+    packages:
+      - ruby-dev
+      - libssl-dev
+
+install: 
+- gem install github-linguist --no-document
+- pip install -e .[tests]
+
+script:
+- pytest -rsv
+- flake8
+- mypy . --ignore-missing-imports
+
+after_success:
+- if [[ $TRAVIS_PYTHON_VERSION == 3.6* ]]; then
+  pytest --cov;
+  coveralls;
+  fi
+
