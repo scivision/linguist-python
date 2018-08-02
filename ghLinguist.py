@@ -1,17 +1,16 @@
 #!/usr/bin/env python
 from argparse import ArgumentParser
 from pathlib import Path
-import pylinguist as pl
+import ghlinguist as ghl
 
 
 def main():
     p = ArgumentParser()
-    p.add_argument('path', help='path to examine with Linguist',
+    p.add_argument('path', help='path to examine with GitHub Linguist',
                    nargs='?', default='.')
-    p.add_argument('-v', '--verbose', action='store_true')
     p = p.parse_args()
 
-    langs = pl.linguist(Path(p.path).expanduser(), p.verbose)
+    langs = ghl.linguist(Path(p.path).expanduser())
 
     for l in langs:
         print(f'{l[0]} {l[1]}%')

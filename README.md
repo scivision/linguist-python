@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/scivision/linguist-python/badge.svg?branch=master)](https://coveralls.io/github/scivision/linguist-python?branch=master)
 [![Build status](https://ci.appveyor.com/api/projects/status/95502ny5y0bsy8ll?svg=true)](https://ci.appveyor.com/project/scivision/linguist-python)
 
-# python-linguist
+# linguist-python
 Simple command-line wrapper of Ruby-based Github Linguist
 
 ## Prereqs
@@ -35,17 +35,17 @@ pip install -e .
 ## Usage
 From Terminal:
 ```
-pylinguist
+ghlinguist
 ```
 
 You can also import as a Python module:
 ```python
-import pylinguist as pl
+import ghlinguist as ghl
 
-langs = pl.linguist('~/mypath')
+langs = ghl.linguist('~/mypath')
 ```
 
 ## Notes
-PyLinguist parses text output from 
+ghLinguist parses text output from 
 [GitHub Linguist](https://github.com/github/linguist#using-emacs-or-vim-modelines), 
 which is a Ruby program.

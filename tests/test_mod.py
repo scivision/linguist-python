@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import pylinguist as pl
+import ghlinguist as ghl
 import pytest
 from pathlib import Path
 
@@ -7,7 +7,7 @@ R = Path(__file__).resolve().parents[1]
 
 
 def test_linguist():
-    langs = pl.linguist(R, False)
+    langs = ghl.linguist(R)
 
     assert langs[0][0] == 'Python'
 
