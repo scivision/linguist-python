@@ -11,7 +11,7 @@ Since we are merely parsing the original Linguist command-line output, we need t
 
 1. setup RubyGems:
    ```sh
-   apt install ruby-dev libssl-dev
+   apt install ruby-dev libssl-dev libicu-dev zlib1g-dev libcurl4-openssl-dev
    
    gem update --system
    ```
