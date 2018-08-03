@@ -1,9 +1,9 @@
 import subprocess
-from typing import List, Tuple
+from typing import List, Tuple, Union
 from pathlib import Path
 
 
-def linguist(path: Path) -> List[Tuple[str, str]]:
+def linguist(path: Path, rtype: bool=False) -> Union[str, List[Tuple[str, str]]]:
 
     ret = subprocess.check_output(['linguist', str(path)],
                                   universal_newlines=True).split('\n')
@@ -15,5 +15,8 @@ def linguist(path: Path) -> List[Tuple[str, str]]:
         if not L:  # EOF
             break
         lpct.append((L[1], L[0][:-1]))
+
+    if rtype:
+        return lpct[0][0]
 
     return lpct

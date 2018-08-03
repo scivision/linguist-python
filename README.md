@@ -35,6 +35,22 @@ The functions return a list of tuples like:
 ```
 where the second number is the percentage of code detected for that language.
 
+### Examples
+The primary reason behind creating this Python Linguist wrapper is automatically detecting the repo type, so that appropriate templates can be applied *en masse* to a large number of repos.
+Thus to get the repo language from the command line, as GitHub would:
+```sh
+ghlinguist -t
+```
+
+or as a Python module:
+```python
+import ghlinguist as ghl
+
+lang = ghl.linguist('~/mypath', rpath=True)
+```
+
+Both cases simply return the string `Python` or `Fortran` etc.
+
 ## Notes
 ghLinguist parses text output from 
 [GitHub Linguist](https://github.com/github/linguist#using-emacs-or-vim-modelines), 

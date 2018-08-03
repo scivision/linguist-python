@@ -12,5 +12,11 @@ def test_linguist():
     assert langs[0][0] == 'Python'
 
 
+def test_type():
+    lang = ghl.linguist(R, rtype=True)
+
+    assert lang == 'Python'
+
+
 if __name__ == '__main__':
     pytest.main(['-x', __file__])
