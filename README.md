@@ -5,9 +5,44 @@
 # linguist-python
 Simple command-line wrapper of Ruby-based Github Linguist
 
-## Prereqs
+## Install
 
-Since we are merely parsing the original Linguist command-line output, we need to install Linguist as usual. Assuming Linux:
+1. Install Linguist as usual:
+   ```sh
+   gem install github-linguist
+   ```
+2. Install Python wrapper:
+   ```sh
+   pip install -e .
+   ```
+
+## Usage
+From Terminal:
+```
+ghlinguist
+```
+
+Or import as a Python module.
+```python
+import ghlinguist as ghl
+
+langs = ghl.linguist('~/mypath')
+```
+The functions return a list of tuples like:
+```
+[('Python'), (97.)]
+[('Fortran'), (3.)]
+```
+where the second number is the percentage of code detected for that language.
+
+## Notes
+ghLinguist parses text output from 
+[GitHub Linguist](https://github.com/github/linguist#using-emacs-or-vim-modelines), 
+which is a Ruby program.
+
+
+### Linux prereqs
+If you don't already have RubyGems setup on Linux:
 
 1. setup RubyGems:
    ```sh
@@ -21,31 +56,4 @@ Since we are merely parsing the original Linguist command-line output, we need t
    export GEM_HOME=$HOME/gems
    export PATH=$HOME/gems/bin:$PATH
    ```
-3. install Github Linguist:
-   ```sh
-   gem install github-linguist
-   ```
 
-## Install
-
-```sh
-pip install -e .
-```
-
-## Usage
-From Terminal:
-```
-ghlinguist
-```
-
-You can also import as a Python module:
-```python
-import ghlinguist as ghl
-
-langs = ghl.linguist('~/mypath')
-```
-
-## Notes
-ghLinguist parses text output from 
-[GitHub Linguist](https://github.com/github/linguist#using-emacs-or-vim-modelines), 
-which is a Ruby program.
