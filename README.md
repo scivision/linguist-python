@@ -3,7 +3,11 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/95502ny5y0bsy8ll?svg=true)](https://ci.appveyor.com/project/scivision/linguist-python)
 
 # linguist-python
-Simple command-line wrapper of Ruby-based Github Linguist
+Simple command-line wrapper of Ruby-based Github Linguist.
+[Linguist](https://github.com/github/linguist)
+(and hence this Python wrapper) detect the language of a Git repo, based on the `commit`ed files
+[`.gitattributes`](https://github.com/github/linguist#using-gitattributes) 
+is used to configure Linguist to not get distracted by `docs` or archive files, etc. using several straightforward rules.
 
 ## Install
 
