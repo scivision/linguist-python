@@ -13,9 +13,11 @@ def test_linguist():
 
 
 def test_type():
-    lang = ghl.linguist(R, rtype=True)
+    assert ghl.linguist(R, rtype=True) == 'Python'
 
-    assert lang == 'Python'
+
+def test_norepo(tmpdir):
+    assert ghl.linguist(tmpdir.mkdir('empty')) is None
 
 
 if __name__ == '__main__':

@@ -39,6 +39,8 @@ The functions return a list of tuples like:
 ```
 where the second number is the percentage of code detected for that language.
 
+If the directory is not a Git repo, `None` is returned
+
 ### Examples
 The primary reason behind creating this Python Linguist wrapper is automatically detecting the repo type, so that appropriate templates can be applied *en masse* to a large number of repos.
 Thus to get the repo language from the command line, as GitHub would:
