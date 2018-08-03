@@ -40,9 +40,11 @@ def checkrepo(path: Path) -> bool:
         return False
 
 # %% detect uncommited (dirty)
-    ret = subprocess.check_output(['git', 'status', '--porcelain'], cwd=path, universal_newlines=True)
-    if ret:  # non-empty string
+    ret = subprocess.check_output(['git', 'status', '--porcelain'],
+                                  cwd=path, universal_newlines=True)
+
+    if ret.startswith('A'):  # non-empty string
         logging.warning(f'{path} has uncommited changes: \n{ret}\n Linguist only works on files after "git commit"')
-        return True  # yes true, don't need to be too perfectionist
+        return False
 
     return True

@@ -6,7 +6,6 @@ stack: python 3
 
 environment:
   PY_DIR: C:\Python37-x64
-  
 
 clone_depth: 3
 
@@ -22,6 +21,6 @@ init:
 install: 
 - gem install github-linguist --no-document
 - pip install -e .[tests]
-  
+
 test_script: pytest -rsv
 
