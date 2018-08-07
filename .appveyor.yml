@@ -1,5 +1,5 @@
 image:
-#- Visual Studio 2017
+#- Visual Studio 2017 # how to setup ssl-dev etc.
 - Ubuntu
 
 stack: python 3
@@ -18,7 +18,7 @@ init:
 - sh: sudo apt -yq update > /dev/null
 - sh: sudo apt install -yq --no-install-suggests --no-install-recommends libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev > /dev/null
 
-install: 
+install:
 - gem install github-linguist --no-document
 - pip install -e .[tests]
 
