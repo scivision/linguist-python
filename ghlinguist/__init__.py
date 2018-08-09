@@ -43,8 +43,14 @@ def checkrepo(path: Path) -> bool:
     ret = subprocess.check_output(['git', 'status', '--porcelain'],
                                   cwd=path, universal_newlines=True)
 
-    if ret.startswith('A'):  # non-empty string
-        logging.warning(f'{path} has uncommited changes: \n{ret}\n Linguist only works on files after "git commit"')
-        return False
+    ADD = {'A', '?'}
+    MOD = 'M'
+
+    for line in ret.split('\n'):
+        L = line.split()
+
+        if ADD.intersection(L[0]) or (MOD in L[0] and L[1] == '.gitattributes'):
+            logging.warning(f' {path} has uncommited changes: \n\n{ret}\n Linguist only works on files after "git commit"')
+            return False
 
     return True
