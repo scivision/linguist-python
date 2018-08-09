@@ -50,7 +50,7 @@ def checkrepo(path: Path) -> bool:
         L = line.split()
         if not L:
             continue
-        
+
         if ADD.intersection(L[0]) or (MOD in L[0] and L[1] == '.gitattributes'):
             logging.warning(f' {path} has uncommited changes: \n\n{ret}\n Linguist only works on files after "git commit"')
             return False
