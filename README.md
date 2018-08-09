@@ -6,11 +6,13 @@
 [![PyPi Download stats](http://pepy.tech/badge/ghlinguist)](http://pepy.tech/project/ghlinguist)
 
 # linguist-python
-Simple command-line wrapper of Ruby-based Github Linguist.
+Simple Python command-line wrapper of Ruby-based Github Linguist.
 [Linguist](https://github.com/github/linguist)
 (and hence this Python wrapper) detect the language of a Git repo, based on the `commit`ed files
 [`.gitattributes`](https://github.com/github/linguist#using-gitattributes) 
 is used to configure Linguist to not get distracted by `docs` or archive files, etc. using several straightforward rules.
+
+This Python wrapper attempts to make Linguist a little more careful by warning users of uncommitted changes or additions that could make Linguist silently give very skewed (inaccurate) results, since Linguist only works on files/changes *after* `git commit`.
 
 ## Install
 
