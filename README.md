@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.com/scivision/linguist-python.svg?branch=master)](https://travis-ci.com/scivision/linguist-python)
 [![Coverage Status](https://coveralls.io/repos/github/scivision/linguist-python/badge.svg?branch=master)](https://coveralls.io/github/scivision/linguist-python?branch=master)
-[![Build status](https://ci.appveyor.com/api/projects/status/95502ny5y0bsy8ll?svg=true)](https://ci.appveyor.com/project/scivision/linguist-python)
 [![pypi versions](https://img.shields.io/pypi/pyversions/ghlinguist.svg)](https://pypi.python.org/pypi/ghlinguist)
 [![PyPi Download stats](http://pepy.tech/badge/ghlinguist)](http://pepy.tech/project/ghlinguist)
 
