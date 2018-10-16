@@ -2,7 +2,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/scivision/linguist-python/badge.svg?branch=master)](https://coveralls.io/github/scivision/linguist-python?branch=master)
 [![Build status](https://ci.appveyor.com/api/projects/status/95502ny5y0bsy8ll?svg=true)](https://ci.appveyor.com/project/scivision/linguist-python)
 [![pypi versions](https://img.shields.io/pypi/pyversions/ghlinguist.svg)](https://pypi.python.org/pypi/ghlinguist)
-[![pypi format](https://img.shields.io/pypi/format/ghlinguist.svg)](https://pypi.python.org/pypi/ghlinguist)
 [![PyPi Download stats](http://pepy.tech/badge/ghlinguist)](http://pepy.tech/project/ghlinguist)
 
 # linguist-python
@@ -66,7 +65,7 @@ Both cases simply return the string `Python` or `Fortran` etc.
 ghLinguist parses text output from 
 [GitHub Linguist](https://github.com/github/linguist#using-emacs-or-vim-modelines), 
 which is a Ruby program.
-
+We call `github-linguist` executable since `linguist` overlaps with QT Lingiust.
 
 ### Linux prereqs
 If you don't already have RubyGems setup on Linux:

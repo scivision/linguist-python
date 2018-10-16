@@ -1,7 +1,4 @@
-# this also works great on osx, but I disabled osx to conserve Travis-CI resources.
 language: python
-sudo: required
-dist: xenial
 group: travis_latest
 
 git:
@@ -10,11 +7,10 @@ git:
 
 python:
 - 3.6
-- 3.7
 
 os:
 - linux
-  
+
 env: GEM_HOME=$HOME/gems PATH=$HOME/gems/bin:$PATH
 
 addons:
@@ -23,18 +19,20 @@ addons:
     - ruby-dev
     - libssl-dev
 
-install: 
+install:
 - gem install github-linguist --no-document
 - pip install -e .[tests]
+- if [[ $TRAVIS_PYTHON_VERSION == 3.6* ]]; then pip install -e .[cov]; fi
 
 script:
 - pytest -rsv
-- flake8
-- mypy . --ignore-missing-imports
+
+- if [[ $TRAVIS_PYTHON_VERSION == 3.6* ]]; then flake8; fi
+- if [[ $TRAVIS_PYTHON_VERSION == 3.6* ]]; then mypy . --ignore-missing-imports; fi
 
 after_success:
 - if [[ $TRAVIS_PYTHON_VERSION == 3.6* ]]; then
-  pytest --cov;
+  pytest --cov --cov-config=setup.cfg;
   coveralls;
   fi
 

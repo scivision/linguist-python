@@ -12,7 +12,7 @@ def linguist(path: Path, rtype: bool=False) -> Optional[Union[str, List[Tuple[st
     if not checkrepo(path):
         return None
 
-    ret = subprocess.check_output(['linguist', str(path)],
+    ret = subprocess.check_output(['github-linguist', str(path)],
                                   universal_newlines=True).split('\n')
 
 # %% parse percentage

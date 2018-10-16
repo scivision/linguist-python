@@ -1,1 +1,3 @@
 include LICENSE
+include ghLinguist.py
+recursive-include tests *.py
