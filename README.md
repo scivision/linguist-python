@@ -7,18 +7,26 @@
 Simple Python command-line wrapper of Ruby-based Github Linguist.
 [Linguist](https://github.com/github/linguist)
 (and hence this Python wrapper) detect the language of a Git repo, based on the `commit`ed files
-[`.gitattributes`](https://github.com/github/linguist#using-gitattributes) 
+[`.gitattributes`](https://github.com/github/linguist#using-gitattributes)
 is used to configure Linguist to not get distracted by `docs` or archive files, etc. using several straightforward rules.
 
 This Python wrapper attempts to make Linguist a little more careful by warning users of uncommitted changes or additions that could make Linguist silently give very skewed (inaccurate) results, since Linguist only works on files/changes *after* `git commit`.
 
 ## Install
 
+0. Ensure you have Ruby installed.
+
+   * Windows: Windows Subsystem for Linux is recommended.
+   * Linux: see Notes section at bottom of this README
+   * MacOS: `brew install ruby`
+
 1. Install Linguist as usual:
+
    ```sh
    gem install github-linguist
    ```
 2. Install Python wrapper:
+
    ```sh
    pip install -e .
    ```
@@ -61,8 +69,8 @@ lang = ghl.linguist('~/mypath', rpath=True)
 Both cases simply return the string `Python` or `Fortran` etc.
 
 ## Notes
-ghLinguist parses text output from 
-[GitHub Linguist](https://github.com/github/linguist#using-emacs-or-vim-modelines), 
+ghLinguist parses text output from
+[GitHub Linguist](https://github.com/github/linguist#using-emacs-or-vim-modelines),
 which is a Ruby program.
 We call `github-linguist` executable since `linguist` overlaps with QT Lingiust.
 
@@ -72,7 +80,7 @@ If you don't already have RubyGems setup on Linux:
 1. setup RubyGems:
    ```sh
    apt install ruby-dev libssl-dev libicu-dev zlib1g-dev libcurl4-openssl-dev
-   
+
    gem update --system
    ```
 2. be sure Gems are installed to home directory, NOT system (no sudo) by adding to `~/.bashrc`:

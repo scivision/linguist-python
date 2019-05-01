@@ -2,18 +2,21 @@ import subprocess
 import logging
 from typing import List, Tuple, Union, Optional
 from pathlib import Path
-# takes too long to check if Linguist installed each time
+import shutil
+
+EXE = shutil.which('github-linguist')
+if not EXE:
+    raise FileNotFoundError('GitHub Linguist not found, did you install it per README?')
 
 
-def linguist(path: Path, rtype: bool=False) -> Optional[Union[str, List[Tuple[str, str]]]]:
+def linguist(path: Path, rtype: bool = False) -> Optional[Union[str, List[Tuple[str, str]]]]:
 
     path = Path(path).expanduser()
 
     if not checkrepo(path):
         return None
 
-    ret = subprocess.check_output(['github-linguist', str(path)],
-                                  universal_newlines=True).split('\n')
+    ret = subprocess.check_output([EXE, str(path)], universal_newlines=True).split('\n')
 
 # %% parse percentage
     lpct = []
