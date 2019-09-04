@@ -6,7 +6,11 @@ import shutil
 
 EXE = shutil.which('github-linguist')
 if not EXE:
-    raise FileNotFoundError('GitHub Linguist not found, did you install it per README?')
+    raise ImportError('GitHub Linguist not found, did you install it per README?')
+
+GIT = shutil.which('git')
+if not GIT:
+    raise ImportError('Git not found')
 
 
 def linguist(path: Path, rtype: bool = False) -> Optional[Union[str, List[Tuple[str, str]]]]:
@@ -21,7 +25,7 @@ def linguist(path: Path, rtype: bool = False) -> Optional[Union[str, List[Tuple[
 # %% parse percentage
     lpct = []
 
-    for i, line in enumerate(ret):
+    for line in ret:
         L = line.split()
         if not L:  # EOF
             break
@@ -43,7 +47,7 @@ def checkrepo(path: Path) -> bool:
         return False
 
 # %% detect uncommited (dirty)
-    ret = subprocess.check_output(['git', 'status', '--porcelain'],
+    ret = subprocess.check_output([GIT, 'status', '--porcelain'],
                                   cwd=path, universal_newlines=True)
 
     ADD = {'A', '?'}

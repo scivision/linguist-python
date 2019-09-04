@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-import ghlinguist as ghl
 import pytest
 from pathlib import Path
+import ghlinguist as ghl
 
 R = Path(__file__).resolve().parents[1]
 
