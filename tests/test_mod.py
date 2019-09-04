@@ -9,16 +9,16 @@ R = Path(__file__).resolve().parents[1]
 def test_linguist():
     langs = ghl.linguist(R)
 
-    assert langs[0][0] == 'Python'
+    assert langs[0][0] == "Python"
 
 
 def test_type():
-    assert ghl.linguist(R, rtype=True) == 'Python'
+    assert ghl.linguist(R, rtype=True) == "Python"
 
 
 def test_norepo(tmpdir):
-    assert ghl.linguist(tmpdir.mkdir('empty')) is None
+    assert ghl.linguist(tmpdir.mkdir("empty")) is None
 
 
-if __name__ == '__main__':
-    pytest.main(['-x', __file__])
+if __name__ == "__main__":
+    pytest.main(["-x", __file__])

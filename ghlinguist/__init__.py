@@ -4,13 +4,13 @@ from typing import List, Tuple, Union, Optional
 from pathlib import Path
 import shutil
 
-EXE = shutil.which('github-linguist')
+EXE = shutil.which("github-linguist")
 if not EXE:
-    raise ImportError('GitHub Linguist not found, did you install it per README?')
+    raise ImportError("GitHub Linguist not found, did you install it per README?")
 
-GIT = shutil.which('git')
+GIT = shutil.which("git")
 if not GIT:
-    raise ImportError('Git not found')
+    raise ImportError("Git not found")
 
 
 def linguist(path: Path, rtype: bool = False) -> Optional[Union[str, List[Tuple[str, str]]]]:
@@ -20,9 +20,9 @@ def linguist(path: Path, rtype: bool = False) -> Optional[Union[str, List[Tuple[
     if not checkrepo(path):
         return None
 
-    ret = subprocess.check_output([EXE, str(path)], universal_newlines=True).split('\n')
+    ret = subprocess.check_output([EXE, str(path)], universal_newlines=True).split("\n")
 
-# %% parse percentage
+    # %% parse percentage
     lpct = []
 
     for line in ret:
@@ -42,24 +42,29 @@ def checkrepo(path: Path) -> bool:
 
     path = Path(path).expanduser()
 
-    if not (path / '.git').is_dir():
-        logging.error(f'{path} does not seem to be a Git repository, and Linguist only works on files after "git commit"')
+    if not (path / ".git").is_dir():
+        logging.error(
+            f'{path} does not seem to be a Git repository, and Linguist only works on files after "git commit"'
+        )
         return False
 
-# %% detect uncommited (dirty)
-    ret = subprocess.check_output([GIT, 'status', '--porcelain'],
-                                  cwd=path, universal_newlines=True)
+    # %% detect uncommited (dirty)
+    ret = subprocess.check_output(
+        [GIT, "status", "--porcelain"], cwd=path, universal_newlines=True
+    )
 
-    ADD = {'A', '?'}
-    MOD = 'M'
+    ADD = {"A", "?"}
+    MOD = "M"
 
-    for line in ret.split('\n'):
+    for line in ret.split("\n"):
         L = line.split()
         if not L:
             continue
 
-        if ADD.intersection(L[0]) or (MOD in L[0] and L[1] == '.gitattributes'):
-            logging.warning(f' {path} has uncommited changes: \n\n{ret}\n Linguist only works on files after "git commit"')
+        if ADD.intersection(L[0]) or (MOD in L[0] and L[1] == ".gitattributes"):
+            logging.warning(
+                f' {path} has uncommited changes: \n\n{ret}\n Linguist only works on files after "git commit"'
+            )
             return False
 
     return True
