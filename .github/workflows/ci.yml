@@ -42,10 +42,10 @@ jobs:
     - uses: actions/setup-ruby@v1
       with:
         ruby-version: '2.x'
-    - run: sudo apt install libssl-dev ruby-dev
     - run: gem install github-linguist --no-document
     - run: python setup.py install
-    - run: |
+    - name: install test
+      run: |
         cd ${HOME}
         python -m pip install pytest
         python -m pytest ${GITHUB_WORKSPACE} -r a -v
