@@ -43,15 +43,11 @@ def checkrepo(path: Path) -> bool:
     path = Path(path).expanduser()
 
     if not (path / ".git").is_dir():
-        logging.error(
-            f'{path} does not seem to be a Git repository, and Linguist only works on files after "git commit"'
-        )
+        logging.error(f'{path} does not seem to be a Git repository, and Linguist only works on files after "git commit"')
         return False
 
     # %% detect uncommited (dirty)
-    ret = subprocess.check_output(
-        [GIT, "status", "--porcelain"], cwd=path, universal_newlines=True
-    )
+    ret = subprocess.check_output([GIT, "status", "--porcelain"], cwd=path, universal_newlines=True)
 
     ADD = {"A", "?"}
     MOD = "M"
@@ -62,9 +58,7 @@ def checkrepo(path: Path) -> bool:
             continue
 
         if ADD.intersection(L[0]) or (MOD in L[0] and L[1] == ".gitattributes"):
-            logging.warning(
-                f' {path} has uncommited changes: \n\n{ret}\n Linguist only works on files after "git commit"'
-            )
+            logging.warning(f' {path} has uncommited changes: \n\n{ret}\n Linguist only works on files after "git commit"')
             return False
 
     return True

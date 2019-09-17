@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/scivision/linguist-python.svg?branch=master)](https://travis-ci.com/scivision/linguist-python)
+[![Actions Status](https://github.com/scivision/linguist-python/workflows/ci/badge.svg)](https://github.com/scivision/linguist-python/actions)
 
 [![pypi versions](https://img.shields.io/pypi/pyversions/ghlinguist.svg)](https://pypi.python.org/pypi/ghlinguist)
 [![PyPi Download stats](http://pepy.tech/badge/ghlinguist)](http://pepy.tech/project/ghlinguist)
