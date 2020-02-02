@@ -1,19 +1,18 @@
 import subprocess
 import logging
-from typing import List, Tuple, Union, Optional
+from typing import List, Tuple, Union
 from pathlib import Path
 import shutil
 
 EXE = shutil.which("github-linguist")
-if not EXE:
-    raise ImportError("GitHub Linguist not found, did you install it per README?")
-
 GIT = shutil.which("git")
-if not GIT:
-    raise ImportError("Git not found")
 
 
-def linguist(path: Path, rtype: bool = False) -> Optional[Union[str, List[Tuple[str, str]]]]:
+def linguist(path: Path, rtype: bool = False) -> Union[str, List[Tuple[str, str]]]:
+    """runs Github Linguist Ruby script"""
+
+    if not EXE:
+        raise ImportError("GitHub Linguist not found, did you install it per README?")
 
     path = Path(path).expanduser()
 
@@ -39,6 +38,9 @@ def linguist(path: Path, rtype: bool = False) -> Optional[Union[str, List[Tuple[
 
 def checkrepo(path: Path) -> bool:
     """basic check for healthy Git repo ready for Linguist to analyze"""
+
+    if not GIT:
+        raise ImportError("Git not found")
 
     path = Path(path).expanduser()
 

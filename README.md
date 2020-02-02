@@ -1,41 +1,41 @@
-[![Actions Status](https://github.com/scivision/linguist-python/workflows/ci/badge.svg)](https://github.com/scivision/linguist-python/actions)
+# linguist-python
 
+![ci](https://github.com/scivision/linguist-python/workflows/ci/badge.svg)
 [![pypi versions](https://img.shields.io/pypi/pyversions/ghlinguist.svg)](https://pypi.python.org/pypi/ghlinguist)
 [![PyPi Download stats](http://pepy.tech/badge/ghlinguist)](http://pepy.tech/project/ghlinguist)
 
-# linguist-python
-Simple Python command-line wrapper of Ruby-based Github Linguist.
-[Linguist](https://github.com/github/linguist)
-(and hence this Python wrapper) detect the language of a Git repo, based on the `commit`ed files
-[`.gitattributes`](https://github.com/github/linguist#using-gitattributes)
+Pure Python command-line wrapper of Ruby-based Github [Linguist](https://github.com/github/linguist).
+Linguist detects the language of a Git repo based on the `commit`ed files.
+The repo file
+[.gitattributes](https://github.com/github/linguist#using-gitattributes)
 is used to configure Linguist to not get distracted by `docs` or archive files, etc. using several straightforward rules.
 
-This Python wrapper attempts to make Linguist a little more careful by warning users of uncommitted changes or additions that could make Linguist silently give very skewed (inaccurate) results, since Linguist only works on files/changes *after* `git commit`.
+This Python wrapper makes Linguist more intuitive by warning users of uncommitted changes or additions that could make Linguist silently give inaccurate results, since Linguist only works on files that have been `git commit`ed.
 
 ## Install
 
-0. Ensure you have Ruby installed.
+Ruby is required for Linguist:
 
-   * Windows: Windows Subsystem for Linux is recommended.
-   * Linux: see Notes section at bottom of this README
-   * MacOS / Linux Homebrew: `brew install ruby`
+* Windows: Windows Subsystem for Linux is recommended.
+* Linux: see Notes section at bottom of this README
+* MacOS / Linux Homebrew: `brew install ruby`
 
 1. Install Linguist as usual:
 
    ```sh
    gem install github-linguist
    ```
-2. Install Python wrapper:
+2. Install this Python wrapper:
 
    ```sh
-   pip install -e .
+   pip install ghlinguist
    ```
 
 ## Usage
 
 From Terminal:
 
-```
+```sh
 ghlinguist
 ```
 
@@ -102,4 +102,3 @@ If you don't already have RubyGems setup on Linux:
    export GEM_HOME=$HOME/gems
    export PATH=$HOME/gems/bin:$PATH
    ```
-
