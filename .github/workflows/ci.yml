@@ -28,6 +28,6 @@ jobs:
 
     - run: flake8
 
-    - run: mypy .
+    - run: mypy
 
     - run: pytest

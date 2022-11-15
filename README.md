@@ -36,7 +36,7 @@ Ruby is required for Linguist:
 From Terminal:
 
 ```sh
-ghlinguist
+python -m ghlinguist
 ```
 
 Or import as a Python module.
@@ -64,7 +64,7 @@ The primary reason behind creating this Python Linguist wrapper is automatically
 Thus to get the repo language from the command line, as GitHub would:
 
 ```sh
-ghlinguist -t
+python -m ghlinguist -t
 ```
 
 or as a Python module:
