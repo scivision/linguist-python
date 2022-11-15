@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-import pytest
 from pathlib import Path
 import ghlinguist as ghl
 
@@ -18,7 +16,3 @@ def test_type():
 
 def test_norepo(tmpdir):
     assert ghl.linguist(tmpdir.mkdir("empty")) is None
-
-
-if __name__ == "__main__":
-    pytest.main(["-x", __file__])

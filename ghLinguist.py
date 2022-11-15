@@ -14,8 +14,8 @@ def main():
     if isinstance(langs, str):
         print(langs)
     elif isinstance(langs, list):
-        for l in langs:
-            print(f"{l[0]} {l[1]}%")
+        for ln in langs:
+            print(f"{ln[0]} {ln[1]}%")
 
 
 if __name__ == "__main__":

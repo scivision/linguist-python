@@ -1,6 +1,6 @@
+from __future__ import annotations
 import subprocess
 import logging
-from typing import List, Tuple, Union
 from pathlib import Path
 import shutil
 
@@ -8,7 +8,7 @@ EXE = shutil.which("github-linguist")
 GIT = shutil.which("git")
 
 
-def linguist(path: Path, rtype: bool = False) -> Union[str, List[Tuple[str, str]]]:
+def linguist(path: Path, rtype: bool = False) -> str | list[tuple[str, str]]:
     """runs Github Linguist Ruby script"""
 
     if not EXE:
