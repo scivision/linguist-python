@@ -1,7 +1,7 @@
 from pathlib import Path
 import ghlinguist as ghl
 
-R = Path(__file__).resolve().parents[1]
+R = Path(__file__).resolve().parents[3]
 
 
 def test_linguist():
