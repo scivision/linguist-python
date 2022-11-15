@@ -34,7 +34,7 @@ def linguist(
         L = line.split()
         if not L:  # EOF
             break
-        lpct.append((L[0], L[-1]))
+        lpct.append((L[-1], L[0][:-1]))
 
     if rtype:
         return lpct[0][0]
